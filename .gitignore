@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Simulation / build artifacts (rebuildable from rtl/ + tb/)
+sim/*.vvp
+sim/*.vcd
+sim/*.wdb
+sim/*.log
+sim/*.pb
+sim/*.jou
+sim/xsim.dir/
+sim/xsim.covdb/
+sim/.Xil/
+*.vvp
+
+# Vivado run artifacts (rebuildable from vivado/synth.tcl + rtl/)
+vivado/*.jou
+vivado/*.log
+vivado/reports/*.dcp
+.Xil/
+clockInfo.txt
+
+# Tutorial-style study guide, not part of the repo
+docs/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

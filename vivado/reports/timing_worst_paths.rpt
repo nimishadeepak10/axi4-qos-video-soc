@@ -1,0 +1,267 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
+| Date         : Sun Sep 20 22:52:09 2026
+| Host         : DESKTOP-15NOSCM running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 5 -file C:/Users/Nimisha/verification_tb/AXI4_QoS_VideoSoC/vivado/reports/timing_worst_paths.rpt
+| Design       : axi4_qos_videosoc_top
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.206ns  (required time - arrival time)
+  Source:                 u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_dma/FSM_onehot_state_reg[0]/CE
+                            (rising edge-triggered cell FDPE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        4.541ns  (logic 2.702ns (59.501%)  route 1.839ns (40.499%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 5.924 - 5.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=425, unset)          0.973     0.973    u_ddr_ctrl/u_rd_fifo/clk
+    RAMB18_X1Y32         RAMB18E1                                     r  u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X1Y32         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOPADOP[0])
+                                                      2.454     3.427 r  u_ddr_ctrl/u_rd_fifo/mem_reg/DOPADOP[0]
+                         net (fo=3, routed)           1.057     4.484    u_dma/DOPADOP[0]
+    SLICE_X64Y81         LUT6 (Prop_lut6_I3_O)        0.124     4.608 f  u_dma/FSM_onehot_state[6]_i_2/O
+                         net (fo=1, routed)           0.451     5.059    u_dma/FSM_onehot_state[6]_i_2_n_0
+    SLICE_X62Y80         LUT6 (Prop_lut6_I0_O)        0.124     5.183 r  u_dma/FSM_onehot_state[6]_i_1/O
+                         net (fo=7, routed)           0.331     5.514    u_dma/FSM_onehot_state[6]_i_1_n_0
+    SLICE_X62Y81         FDPE                                         r  u_dma/FSM_onehot_state_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=425, unset)          0.924     5.924    u_dma/clk
+    SLICE_X62Y81         FDPE                                         r  u_dma/FSM_onehot_state_reg[0]/C
+                         clock pessimism              0.000     5.924    
+                         clock uncertainty           -0.035     5.889    
+    SLICE_X62Y81         FDPE (Setup_fdpe_C_CE)      -0.169     5.720    u_dma/FSM_onehot_state_reg[0]
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -5.514    
+  -------------------------------------------------------------------
+                         slack                                  0.206    
+
+Slack (MET) :             0.206ns  (required time - arrival time)
+  Source:                 u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_dma/FSM_onehot_state_reg[1]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        4.541ns  (logic 2.702ns (59.501%)  route 1.839ns (40.499%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 5.924 - 5.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=425, unset)          0.973     0.973    u_ddr_ctrl/u_rd_fifo/clk
+    RAMB18_X1Y32         RAMB18E1                                     r  u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X1Y32         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOPADOP[0])
+                                                      2.454     3.427 r  u_ddr_ctrl/u_rd_fifo/mem_reg/DOPADOP[0]
+                         net (fo=3, routed)           1.057     4.484    u_dma/DOPADOP[0]
+    SLICE_X64Y81         LUT6 (Prop_lut6_I3_O)        0.124     4.608 f  u_dma/FSM_onehot_state[6]_i_2/O
+                         net (fo=1, routed)           0.451     5.059    u_dma/FSM_onehot_state[6]_i_2_n_0
+    SLICE_X62Y80         LUT6 (Prop_lut6_I0_O)        0.124     5.183 r  u_dma/FSM_onehot_state[6]_i_1/O
+                         net (fo=7, routed)           0.331     5.514    u_dma/FSM_onehot_state[6]_i_1_n_0
+    SLICE_X62Y81         FDCE                                         r  u_dma/FSM_onehot_state_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=425, unset)          0.924     5.924    u_dma/clk
+    SLICE_X62Y81         FDCE                                         r  u_dma/FSM_onehot_state_reg[1]/C
+                         clock pessimism              0.000     5.924    
+                         clock uncertainty           -0.035     5.889    
+    SLICE_X62Y81         FDCE (Setup_fdce_C_CE)      -0.169     5.720    u_dma/FSM_onehot_state_reg[1]
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -5.514    
+  -------------------------------------------------------------------
+                         slack                                  0.206    
+
+Slack (MET) :             0.206ns  (required time - arrival time)
+  Source:                 u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_dma/FSM_onehot_state_reg[2]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        4.541ns  (logic 2.702ns (59.501%)  route 1.839ns (40.499%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 5.924 - 5.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=425, unset)          0.973     0.973    u_ddr_ctrl/u_rd_fifo/clk
+    RAMB18_X1Y32         RAMB18E1                                     r  u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X1Y32         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOPADOP[0])
+                                                      2.454     3.427 r  u_ddr_ctrl/u_rd_fifo/mem_reg/DOPADOP[0]
+                         net (fo=3, routed)           1.057     4.484    u_dma/DOPADOP[0]
+    SLICE_X64Y81         LUT6 (Prop_lut6_I3_O)        0.124     4.608 f  u_dma/FSM_onehot_state[6]_i_2/O
+                         net (fo=1, routed)           0.451     5.059    u_dma/FSM_onehot_state[6]_i_2_n_0
+    SLICE_X62Y80         LUT6 (Prop_lut6_I0_O)        0.124     5.183 r  u_dma/FSM_onehot_state[6]_i_1/O
+                         net (fo=7, routed)           0.331     5.514    u_dma/FSM_onehot_state[6]_i_1_n_0
+    SLICE_X62Y81         FDCE                                         r  u_dma/FSM_onehot_state_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=425, unset)          0.924     5.924    u_dma/clk
+    SLICE_X62Y81         FDCE                                         r  u_dma/FSM_onehot_state_reg[2]/C
+                         clock pessimism              0.000     5.924    
+                         clock uncertainty           -0.035     5.889    
+    SLICE_X62Y81         FDCE (Setup_fdce_C_CE)      -0.169     5.720    u_dma/FSM_onehot_state_reg[2]
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -5.514    
+  -------------------------------------------------------------------
+                         slack                                  0.206    
+
+Slack (MET) :             0.206ns  (required time - arrival time)
+  Source:                 u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_dma/FSM_onehot_state_reg[3]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        4.541ns  (logic 2.702ns (59.501%)  route 1.839ns (40.499%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 5.924 - 5.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=425, unset)          0.973     0.973    u_ddr_ctrl/u_rd_fifo/clk
+    RAMB18_X1Y32         RAMB18E1                                     r  u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X1Y32         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOPADOP[0])
+                                                      2.454     3.427 r  u_ddr_ctrl/u_rd_fifo/mem_reg/DOPADOP[0]
+                         net (fo=3, routed)           1.057     4.484    u_dma/DOPADOP[0]
+    SLICE_X64Y81         LUT6 (Prop_lut6_I3_O)        0.124     4.608 f  u_dma/FSM_onehot_state[6]_i_2/O
+                         net (fo=1, routed)           0.451     5.059    u_dma/FSM_onehot_state[6]_i_2_n_0
+    SLICE_X62Y80         LUT6 (Prop_lut6_I0_O)        0.124     5.183 r  u_dma/FSM_onehot_state[6]_i_1/O
+                         net (fo=7, routed)           0.331     5.514    u_dma/FSM_onehot_state[6]_i_1_n_0
+    SLICE_X62Y81         FDCE                                         r  u_dma/FSM_onehot_state_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=425, unset)          0.924     5.924    u_dma/clk
+    SLICE_X62Y81         FDCE                                         r  u_dma/FSM_onehot_state_reg[3]/C
+                         clock pessimism              0.000     5.924    
+                         clock uncertainty           -0.035     5.889    
+    SLICE_X62Y81         FDCE (Setup_fdce_C_CE)      -0.169     5.720    u_dma/FSM_onehot_state_reg[3]
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -5.514    
+  -------------------------------------------------------------------
+                         slack                                  0.206    
+
+Slack (MET) :             0.206ns  (required time - arrival time)
+  Source:                 u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1 clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            u_dma/FSM_onehot_state_reg[4]/CE
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (clk rise@5.000ns - clk rise@0.000ns)
+  Data Path Delay:        4.541ns  (logic 2.702ns (59.501%)  route 1.839ns (40.499%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 5.924 - 5.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=425, unset)          0.973     0.973    u_ddr_ctrl/u_rd_fifo/clk
+    RAMB18_X1Y32         RAMB18E1                                     r  u_ddr_ctrl/u_rd_fifo/mem_reg/CLKARDCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X1Y32         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOPADOP[0])
+                                                      2.454     3.427 r  u_ddr_ctrl/u_rd_fifo/mem_reg/DOPADOP[0]
+                         net (fo=3, routed)           1.057     4.484    u_dma/DOPADOP[0]
+    SLICE_X64Y81         LUT6 (Prop_lut6_I3_O)        0.124     4.608 f  u_dma/FSM_onehot_state[6]_i_2/O
+                         net (fo=1, routed)           0.451     5.059    u_dma/FSM_onehot_state[6]_i_2_n_0
+    SLICE_X62Y80         LUT6 (Prop_lut6_I0_O)        0.124     5.183 r  u_dma/FSM_onehot_state[6]_i_1/O
+                         net (fo=7, routed)           0.331     5.514    u_dma/FSM_onehot_state[6]_i_1_n_0
+    SLICE_X62Y81         FDCE                                         r  u_dma/FSM_onehot_state_reg[4]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        5.000     5.000 r  
+                                                      0.000     5.000 r  clk (IN)
+                         net (fo=425, unset)          0.924     5.924    u_dma/clk
+    SLICE_X62Y81         FDCE                                         r  u_dma/FSM_onehot_state_reg[4]/C
+                         clock pessimism              0.000     5.924    
+                         clock uncertainty           -0.035     5.889    
+    SLICE_X62Y81         FDCE (Setup_fdce_C_CE)      -0.169     5.720    u_dma/FSM_onehot_state_reg[4]
+  -------------------------------------------------------------------
+                         required time                          5.720    
+                         arrival time                          -5.514    
+  -------------------------------------------------------------------
+                         slack                                  0.206    
+
+
+
+
