@@ -6,20 +6,7 @@ A 3-master AXI4 memory subsystem for a video SoC, in SystemVerilog. Three master
 
 ## Architecture
 
-```
-   M0 = CPU traffic  ──┐
-   (AXI4 slave port)   │
-                        ├─▶ QoS write arbiter ─┐
-   M1 = Codec traffic ─┤   QoS read  arbiter ─┼─▶ axi4_ddr_ctrl ──▶ (off-chip, sim-only)
-   (AXI4 slave port)    │   (fixed-index        │   AXI4-to-DDR      ddr_behavioral_model
-                        │    tournament          │   bridge:          - 16MB array
-   2D DMA (M2) ─────────┘    compare, see        │   wr/rd FIFOs      - 14-cycle CAS latency
-   frame-aware via              below)            │   (BRAM-backed)    - 1 beat/cycle burst
-   frame_buffer_mgr                                │
-        ▲                                          └── ddr_cmd/wdata/rdata (simple sync handshake)
-        │ capture_frame_done / display_frame_done
-   triple buffer: front (display) / back (capture) / ready (spare)
-```
+![Architecture: three AXI4 masters into QoS write/read arbiters, into the AXI4-to-DDR bridge, into the DDR model, with the triple buffer manager alongside](images/architecture.png)
 
 - **`rtl/axi4_write_arb.sv` / `rtl/axi4_read_arb.sv`** QoS-weighted arbitration with anti-starvation aging, built around a fixed-index tournament compare (candidate 0 vs 1, then winner vs 2) instead of a rotating-pointer scan-and-select loop, since the scan loop's data-dependent index mux turned out to be the critical-path bottleneck. The priority decision is pipelined one cycle ahead (`pick_r`/`found_r`) before being acted on, and the tournament's two comparison rounds are themselves split across a pipeline stage (`key01_r`/`idx01_r`/`v01_r`/`key2_r`/`valid2_r`) for timing.
 - **`rtl/axi4_ddr_ctrl.sv`** AXI4-to-DDR bridge. Terminates the arbitrated AW/W/B and AR/R channels, buffers a full max-length AXI4 burst (256 beats) of write and read data each in on-chip FIFOs (`rtl/fifo_sync.sv`, BRAM-backed), and drives a simple synchronous command/data interface to the DDR model. Writes are posted: BRESP returns once data is captured into the FIFO, not once DRAM has actually stored it.
